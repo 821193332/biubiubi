@@ -4,7 +4,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -40,8 +39,6 @@ public class MainActivity extends BaseActivity {
     TabLayout tablayout;
     @InjectView(R.id.viewpager)
     ViewPager viewpager;
-    @InjectView(R.id.nestedscrollview)
-    NestedScrollView nestedscrollview;
     @InjectView(R.id.activity_main)
     CoordinatorLayout activityMain;
     @InjectView(R.id.touxiang)
