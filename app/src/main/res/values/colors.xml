@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="back_main">#FB7299</color>
+    <color name="title_white">#FFFFFF</color>
+    <color name="title_black">#000000</color>
+    <color name="title_cinereus">#7F7F7F</color>
+    <color name="hot_huise">#CFCFCF</color>
+    <color name="home_fragment_back">#EAEAEA</color>
+    <color name="title_back">#FAFAFA</color>
+
 </resources>

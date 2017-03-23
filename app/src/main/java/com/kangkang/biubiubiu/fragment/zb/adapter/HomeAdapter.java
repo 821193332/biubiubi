@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -20,6 +21,9 @@ import com.youth.banner.transformer.BackgroundToForegroundTransformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by作者： 康岳龙
  * QQ：821193332 on 2017/3/22 0022.
@@ -33,7 +37,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /**
      * 横幅广告-要从0开
      */
-    public static final int BANNER = 0;
+    public static final int BANNER = 0; //图片
     /**
      * 频道
      */
@@ -56,18 +60,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
      * 热卖
      */
     public static final int HOT = 5;
+
     /**
      * 用他加载布局
      */
-    private  LayoutInflater inflater;
-    private  Context mContext;
-    private  Constants.DataBean dataBean;
+    private LayoutInflater inflater;
+    private Context mContext;
+    private Constants.DataBean dataBean;
 
-    public HomeAdapter(Context mContext, Constants.DataBean data){
-        this.mContext =mContext;
-        this.dataBean=data;
+    public HomeAdapter(Context mContext, Constants.DataBean data) {
+        this.mContext = mContext;
+        this.dataBean = data;
         inflater = LayoutInflater.from(mContext);
-        Log.e("TAG","String=====00000");
+        Log.e("TAG", "String=====00000");
     }
 
     /*public void refresh(Constants.DataBean dataBean){
@@ -83,50 +88,81 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemViewType(int position) {
         if (position == BANNER) {
             currentType = BANNER;
-//        } else if (position == CHANNEL) {
-//            currentType = CHANNEL;
-//        } else if (position == ACT) {
-//            currentType = ACT;
-//        } else if (position == SECKILL) {
-//            currentType = SECKILL;
-//        } else if (position == RECOMMEND) {
-//            currentType = RECOMMEND;
-//        } else if (position == HOT) {
-//            currentType = HOT;
+        } else if (position == CHANNEL) {
+            currentType = CHANNEL;
+        } else if (position == ACT) {
+            currentType = ACT;
+        } else if (position == SECKILL) {
+            currentType = SECKILL;
+        } else if (position == RECOMMEND) {
+            currentType = RECOMMEND;
+        } else if (position == HOT) {
+            currentType = HOT;
         }
         return currentType;
     }
+
     @Override
     public int getItemCount() {
         //return dataBean.getBanner() != null ?dataBean.getBanner().size():0;
-        return 1;
+        return 2;
     }
 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e("TAG","aaaaaaaaaaaaaaaa"+viewType + BANNER);
-        if (viewType ==BANNER){
-            Log.e("TAG","String=====77777");
-            return new BannerViewHolder(mContext,inflater.inflate(R.layout.banner_viewpager,null));
-
+        Log.e("TAG", "aaaaaaaaaaaaaaaa" + viewType + BANNER);
+        if (viewType == BANNER) {
+            Log.e("TAG", "String=====77777");
+            return new BannerViewHolder(mContext, inflater.inflate(R.layout.banner_viewpager, null));
+        } else if (viewType == CHANNEL) {
+            return new ChannelViewHolder( inflater.inflate(R.layout.channel_item, null));
         }
         return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-         if (getItemViewType(position)==BANNER){
-             Log.e("TAG","String=====11111");
-             BannerViewHolder viewHolder = (BannerViewHolder) holder;
-             viewHolder.setData(dataBean.getBanner());
-             Log.e("TAG","String=====222222");
-         }
+        if (getItemViewType(position) == BANNER) {
+            BannerViewHolder viewHolder = (BannerViewHolder) holder;
+            viewHolder.setData(dataBean.getBanner());
+
+        } else if (getItemViewType(position) == CHANNEL) {
+            ChannelViewHolder viewHolder = (ChannelViewHolder) holder;
+            viewHolder.setData(mContext,5);
+        }
     }
 
+
+    static class ChannelViewHolder extends RecyclerView.ViewHolder {
+        @InjectView(R.id.gridview)
+        GridView gridview;
+        //设置适配器
+        private ChanneBaseAdapter baseAdapter;
+        private List<String> mList;
+
+
+        public ChannelViewHolder( View view) {
+            super(view);
+            ButterKnife.inject(this,view);
+
+        }
+
+        public void setData( Context context, int i) {
+          mList =new ArrayList<>();
+            mList.add("关注");
+            mList.add("中心");
+            mList.add("小视频");
+            mList.add("搜索");
+            mList.add("分类");
+            baseAdapter =new ChanneBaseAdapter(context,mList);
+            gridview.setAdapter(baseAdapter);
+
+        }
+    }
 }
 
- class BannerViewHolder extends RecyclerView.ViewHolder {
+class BannerViewHolder extends RecyclerView.ViewHolder {
 
 
     private final Context mContext;
@@ -134,15 +170,15 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public BannerViewHolder(Context mContext, View itemView) {
         super(itemView);
-        this.mContext =mContext;
+        this.mContext = mContext;
         banner = (Banner) itemView.findViewById(R.id.banner);
 
     }
 
     public void setData(List<Constants.DataBean.BannerBean> data) {
-        List<String>images =new ArrayList<>();
-        Log.e("TAG","String=====");
-        for (int i =0;i<data.size();i++){
+        List<String> images = new ArrayList<>();
+        Log.e("TAG", "String=====");
+        for (int i = 0; i < data.size(); i++) {
             images.add(data.get(i).getImg());
             images.add(data.get(i).getImg());
         }
@@ -157,7 +193,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                Toast.makeText(mContext, ""+position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
