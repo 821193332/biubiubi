@@ -59,14 +59,8 @@ public class DirectSeeding extends BaseFragment {
             @Override
             public void onResponse(final String response, int id) {
                 //主线程 分线程
+                ProcessedData(response);
                 Log.e("TAG", "联网成功==");
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        ProcessedData(response);
-                    }
-                });
-
             }
         });
     }
@@ -74,13 +68,14 @@ public class DirectSeeding extends BaseFragment {
     private void ProcessedData(String response) {
 
         Constants constants = JSON.parseObject(response, Constants.class);
-        Log.e("TAG", "解析数据成功==" + constants.getData().getBanner().size());
+        Log.e("TAG", "解析数据成功==123" + constants.getData().getBanner().size());
         //adapter.refresh(constants.getData());
-        Log.e("TAG", "解析数据成功==" + constants.getData().getBanner());
+        Log.e("TAG", "解析数据成功==321" + constants.getData().getBanner());
         adapter = new HomeAdapter(mContext,constants.getData());
         GridLayoutManager manager = new GridLayoutManager(mContext, 1);
         rvHome.setAdapter(adapter);
         rvHome.setLayoutManager(manager);
+
 //        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
 //            @Override
 //            public int getSpanSize(int position) {

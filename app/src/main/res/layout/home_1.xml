@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:padding="10dp">
+    <Button
+        android:id="@+id/chakangengduo"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="查看更多"
+        android:background="@color/title_white"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="11"
+        android:id="@+id/shujuxianshi"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_chevron_right"
+        android:gravity="center"
+        android:text="条新动态，点击刷新！"
+        android:textColor="@color/title_black"
+        />
+
+</LinearLayout>

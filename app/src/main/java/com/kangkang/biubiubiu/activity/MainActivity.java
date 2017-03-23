@@ -18,8 +18,8 @@ import com.kangkang.biubiubiu.base.BaseFragment;
 import com.kangkang.biubiubiu.fragment.AfterSome;
 import com.kangkang.biubiubiu.fragment.DirectSeeding;
 import com.kangkang.biubiubiu.fragment.Find;
-import com.kangkang.biubiubiu.fragment.Partition;
-import com.kangkang.biubiubiu.fragment.Recommend;
+import com.kangkang.biubiubiu.fragment.tj.Recommend;
+import com.kangkang.biubiubiu.fragment.fq.Partition;
 
 import java.util.ArrayList;
 
