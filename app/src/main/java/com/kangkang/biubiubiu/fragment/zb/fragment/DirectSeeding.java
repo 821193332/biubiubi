@@ -1,4 +1,4 @@
-package com.kangkang.biubiubiu.fragment;
+package com.kangkang.biubiubiu.fragment.zb.fragment;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;

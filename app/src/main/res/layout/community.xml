@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="190dp"
+    android:layout_height="190dp"
+    android:background="@color/title_white">
+    <ImageView
+        android:id="@+id/xianshi"
+        android:layout_width="190dp"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/timg"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/biaoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="haha"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/title_black"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/pindao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="你猜猜"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever" />
+        <TextView
+            android:id="@+id/biaoqian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_more_grey"
+            android:gravity="right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

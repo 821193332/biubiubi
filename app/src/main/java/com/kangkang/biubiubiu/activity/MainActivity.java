@@ -15,11 +15,11 @@ import com.kangkang.biubiubiu.R;
 import com.kangkang.biubiubiu.adapter.BaseActivity;
 import com.kangkang.biubiubiu.adapter.MainAdapter;
 import com.kangkang.biubiubiu.base.BaseFragment;
-import com.kangkang.biubiubiu.fragment.AfterSome;
-import com.kangkang.biubiubiu.fragment.DirectSeeding;
+import com.kangkang.biubiubiu.fragment.zf.AfterSome;
 import com.kangkang.biubiubiu.fragment.Find;
-import com.kangkang.biubiubiu.fragment.tj.Recommend;
 import com.kangkang.biubiubiu.fragment.fq.Partition;
+import com.kangkang.biubiubiu.fragment.tj.Recommend;
+import com.kangkang.biubiubiu.fragment.zb.fragment.DirectSeeding;
 
 import java.util.ArrayList;
 

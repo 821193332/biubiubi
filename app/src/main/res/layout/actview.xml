@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.kangkang.biubiubiu.fragment.zb.view.MyGridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="7dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:id="@+id/gridview"
+        android:numColumns="2">
+
+    </com.kangkang.biubiubiu.fragment.zb.view.MyGridView>
+
+</LinearLayout>
